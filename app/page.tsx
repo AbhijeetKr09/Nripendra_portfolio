@@ -11,33 +11,18 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col bg-white overflow-hidden">
-      {/* Name top left */}
-      <div className="fixed top-6 left-10 z-[60] text-lg md:text-xl font-bold tracking-widest uppercase mix-blend-difference text-white pb-1 border-b-2 border-transparent hover:border-white transition-all cursor-pointer">
-        Nripendra Singh
-      </div>
-
       {/* Hero Section */}
-      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
+      <section className="relative w-full h-[calc(100vh-60px)] md:h-screen flex flex-col justify-center items-center overflow-hidden">
 
-        {/* Background Text Layer - Behind the image */}
-        <div className="absolute inset-0 z-0 flex flex-col justify-between p-4 md:p-10 select-none pointer-events-none">
-          {/* Top Text */}
-          <div className="w-full text-center md:text-left">
-            <h1 className="text-[14vw] md:text-[16vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter">
-              Nripendra
-            </h1>
-          </div>
-
-          {/* Bottom Text */}
-          <div className="w-full text-center md:text-right">
-            <h1 className="text-[14vw] md:text-[16vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter">
-              Singh
-            </h1>
-          </div>
+        {/* Top Text - Nripendra (Background) */}
+        <div className="absolute top-[18vh] md:top-10 w-full text-center md:text-left z-0 select-none pointer-events-none px-2 md:px-10">
+          <h1 className="text-[14vw] md:text-[18vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter w-full">
+            Nripendra
+          </h1>
         </div>
 
-        {/* Hero Image - On top of text */}
-        <div className="relative z-10 h-[92vh] w-full md:w-[80vw] max-w-6xl mt-10 md:mt-0">
+        {/* Hero Image - Middle Layer */}
+        <div className="absolute bottom-0 z-10 h-[72vh] md:h-[90vh] w-[95vw] md:w-[60vw] max-w-7xl">
           <Image
             src="/Hero_Image.png"
             alt="Nripendra Singh Model"
@@ -47,6 +32,13 @@ export default function Home() {
             quality={100}
             className="drop-shadow-2xl grayscale filter"
           />
+        </div>
+
+        {/* Bottom Text - Singh (Foreground) */}
+        <div className="absolute bottom-[2vh] md:bottom-10 w-full text-center md:text-right z-20 select-none pointer-events-none px-2 md:px-10">
+          <h1 className="text-[17vw] md:text-[18vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter w-full mix-blend-difference md:mix-blend-normal text-black md:text-black">
+            Singh
+          </h1>
         </div>
       </section>
 
@@ -64,7 +56,7 @@ export default function Home() {
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col justify-center p-10 md:p-20 space-y-8">
+        <div className="flex flex-col justify-center p-10 md:p-20 space-y-8 contents-center">
           <h2 className="text-6xl md:text-8xl font-serif uppercase tracking-tighter">
             About.
           </h2>
@@ -83,17 +75,14 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 px-4 md:px-10 border-t border-black bg-white z-20 relative">
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-4xl md:text-6xl font-serif uppercase text-center md:text-left">
+      <section id="portfolio" className="py-10 md:py-20 bg-white z-20 relative">
+        <div className="w-full mb-12 border-y border-black py-2 md:py-4">
+          <h2 className="text-[15.5vw] leading-[0.85] font-serif uppercase text-center tracking-tighter w-full block">
             Portfolio
           </h2>
-          <a href="/portfolio" className="text-sm md:text-base font-medium uppercase tracking-widest border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">
-            View More
-          </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 px-4 md:px-10">
           {images.slice(0, 3).map((src, index) => (
             <div key={index} className="relative w-full aspect-[3/4] overflow-hidden cursor-pointer group">
               <Image
@@ -105,6 +94,12 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center w-full px-4">
+          <a href="/portfolio" className="inline-block px-8 py-3 bg-black text-white text-sm md:text-base font-medium uppercase tracking-widest hover:bg-gray-800 transition-colors">
+            View More
+          </a>
         </div>
       </section>
     </main>
