@@ -16,19 +16,22 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll from large text */
 }
 
-/* Custom Hero Styles */
+/* --- OPTIMIZED MOBILE HERO STYLES --- */
+
 .hero-wrapper {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px);
-  /* Adjust for navbar height */
+  /* Mobile: Use dynamic viewport height to fix address bar issues */
+  height: 70vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* Align image to bottom */
+  background-color: var(--background);
 }
 
 @media (min-width: 768px) {
@@ -38,8 +41,7 @@ body {
 }
 
 .hero-text {
-  font-family: 'Times New Roman', serif;
-  /* Or use a specific font variable if available */
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-weight: 500;
   text-transform: uppercase;
   line-height: 0.8;
@@ -48,47 +50,56 @@ body {
   position: absolute;
   pointer-events: none;
   user-select: none;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-text-top {
-  top: 10px;
-  /* Slight top padding */
-  font-size: 19vw;
-  /* Large on mobile */
+  top: 0;
+  /* Mobile: 14vw as requested */
+  font-size: 14vw;
   z-index: 0;
-  /* Behind image */
-}
-
-.hero-text-bottom {
-  bottom: 10px;
-  /* Slight bottom padding */
-  font-size: 19vw;
-  /* Large on mobile */
-  z-index: 20;
-  /* In front of image */
+  /* Small top spacing to clear status bar/notch visual preference */
+  padding-top: 1vh;
 }
 
 @media (min-width: 768px) {
+  .hero-text-top {
+    font-size: 18vw;
+    text-align: left;
+    padding-left: 2.5rem;
+    padding-top: 2rem;
+  }
+}
 
-  .hero-text-top,
+.hero-text-bottom {
+  bottom: 0;
+  /* Mobile: Larger bottom text to anchor design */
+  font-size: 18vw;
+  z-index: 20;
+  padding-bottom: 1vh;
+}
+
+@media (min-width: 768px) {
   .hero-text-bottom {
     font-size: 18vw;
-    /* Adjust for desktop */
-    top: 20px;
-    bottom: 20px;
+    text-align: right;
+    padding-right: 2.5rem;
+    padding-bottom: 2rem;
   }
 }
 
 .hero-image-container {
   position: absolute;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-  /* Between text layers */
-  width: 90%;
-  /* Mobile width */
-  height: 75%;
-  /* Mobile height */
+  /* Mobile: Increase width to allow height to grow and overlap text */
+  width: 150%;
+  height: 100%;
   max-width: 1200px;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -104,4 +115,5 @@ body {
   width: 100%;
   height: 100%;
   filter: grayscale(100%);
+  display: block;
 }

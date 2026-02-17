@@ -12,33 +12,24 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative w-full h-[calc(100vh-60px)] md:h-screen flex flex-col justify-center items-center overflow-hidden">
-
-        {/* Top Text - Nripendra (Background) */}
-        <div className="absolute top-[18vh] md:top-10 w-full text-center md:text-left z-0 select-none pointer-events-none px-2 md:px-10">
-          <h1 className="text-[14vw] md:text-[18vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter w-full">
-            Nripendra
-          </h1>
+      <section className="hero-wrapper">
+        <div className="hero-text hero-text-top">
+          <h1>Nripendra</h1>
         </div>
 
-        {/* Hero Image - Middle Layer */}
-        <div className="absolute bottom-0 z-10 h-[72vh] md:h-[90vh] w-[95vw] md:w-[60vw] max-w-7xl">
+        <div className="hero-image-container">
           <Image
             src="/Hero_Image.png"
             alt="Nripendra Singh Model"
             fill
-            style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
             priority
             quality={100}
-            className="drop-shadow-2xl grayscale filter"
+            className="hero-image"
           />
         </div>
 
-        {/* Bottom Text - Singh (Foreground) */}
-        <div className="absolute bottom-[2vh] md:bottom-10 w-full text-center md:text-right z-20 select-none pointer-events-none px-2 md:px-10">
-          <h1 className="text-[17vw] md:text-[18vw] leading-[0.8] font-serif font-medium text-black uppercase tracking-tighter w-full mix-blend-difference md:mix-blend-normal text-black md:text-black">
-            Singh
-          </h1>
+        <div className="hero-text hero-text-bottom">
+          <h1 className="mix-blend-normal text-black">Singh</h1>
         </div>
       </section>
 
